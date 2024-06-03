@@ -6,6 +6,15 @@ This project aims to predict the resale price of flats in Singapore using machin
 
 ## Dataset
 
+
+The dataset collection has been obtained from [data](https://beta.data.gov.sg/collections/189/view)
+
+There are 5 datasets in this collection. 
+
+- Approach 1: Combined all the datasets and developed a model
+- Approach 2: Used seperate cases and developed models to each case. 
+
+
 The dataset consists of the following columns:
 
 1. **month**: The month of the transaction.
@@ -26,16 +35,44 @@ The dataset consists of the following columns:
 ## Model Details
 
 - **Algorithm**: Random Forest Regression
-- **Preprocessing**: Outlier removal, extensive visualization of some columns.
-- **Performance Metrics**: Mean Absolute Error, Root Mean Squared Error, R-squared.
-- **Evaluation Technique**: Cross-validation
+- **Preprocessing**: Outlier removal using standard deviation technique, extensive visualization of floor_area_sqm, resale_price, lease_commence_date
+- **Performance Metrics**: Mean Absolute Error, Root Mean Squared Error, R-squared, r2-score
+- **Evaluation Technique**: Cross-validation (for some cases)
+- **Deployment** Model is deployed in RENDER
 
-## Usage
+## Django App
+
+The Django app for this project is located in the `singapore_fpp` folder. It provides a web interface for users to interact with the prediction model.
+
+### App Usage (Django)
+
+1. Install Django and other dependencies:
+
+    ```bash
+    pip install django gdown
+    ```
+
+2. Navigate to the `singapore_fpp` folder:
+
+    ```bash
+    cd singapore_fpp
+    ```
+
+3. Run the Django development server:
+
+    ```bash
+    python manage.py runserver
+    ```
+
+4. Access the web interface by opening a browser and visiting [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+
+
+## Usage (Jupyter)
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/singapore-flat-resale-price-prediction.git
+    git clone https://github.com/vikasvijigiri/singapore-flat-resale-price-prediction.git
     ```
 
 2. Install the required dependencies:
