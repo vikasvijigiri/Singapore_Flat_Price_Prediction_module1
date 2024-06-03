@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px 40px;
+            width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        label {
+            text-align: left;
+            align-self: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+        input[type="submit"] {
+            grid-column: span 2;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Make a Prediction</h1>
+        <form method="post" action="/myapp/predict/">
+            {% csrf_token %}
+            
+            <label for="month">Month:</label>
+            <input type="text" id="month" name="month">
+            
+            <label for="block">Block:</label>
+            <input type="text" id="block" name="block">
+            
+            <label for="street_name">Street Name:</label>
+            <input type="text" id="street_name" name="street_name">
+            
+            <label for="storey_range">Storey Range:</label>
+            <input type="text" id="storey_range" name="storey_range">
+            
+            <label for="floor_area_sqm">Floor Area (sqm):</label>
+            <input type="text" id="floor_area_sqm" name="floor_area_sqm">
+            
+            <label for="flat_model">Flat Model:</label>
+            <input type="text" id="flat_model" name="flat_model">
+            
+            <label for="lease_commence_date">Lease Commence Date:</label>
+            <input type="text" id="lease_commence_date" name="lease_commence_date">
+            
+            <input type="submit" value="Resale Price (prediction)">
+        </form>
+    </div>
+</body>
+</html>
